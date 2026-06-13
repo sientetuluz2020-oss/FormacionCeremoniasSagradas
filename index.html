@@ -20,6 +20,9 @@
   --beige-calido:#faf3ec;
   --dorado:#c9a24a;
   --dorado-claro:#e0c485;
+  --cta-verde:#1f7a5a;
+  --cta-verde-osc:#155c42;
+  --cta-verde-claro:#2e9b73;
   --blanco-calido:#fffaf6;
   --tierra:#b08968;
   --texto:#3d262d;
@@ -40,16 +43,16 @@ a{text-decoration:none;color:inherit}
 .bg-atmosfera{
   position:fixed;inset:0;z-index:-2;
   background:
-    radial-gradient(circle at 15% 10%, rgba(230,220,239,.45), transparent 40%),
-    radial-gradient(circle at 85% 20%, rgba(247,228,230,.6), transparent 45%),
-    radial-gradient(circle at 50% 60%, rgba(250,243,236,.7), transparent 55%),
-    radial-gradient(circle at 20% 90%, rgba(217,154,166,.18), transparent 45%),
-    linear-gradient(180deg,#fffaf6,#fbeef0 50%,#fffaf6);
+    radial-gradient(circle at 15% 8%, rgba(224,220,242,.5), transparent 40%),
+    radial-gradient(circle at 85% 18%, rgba(214,233,224,.45), transparent 45%),
+    radial-gradient(circle at 50% 55%, rgba(250,243,236,.75), transparent 55%),
+    radial-gradient(circle at 18% 88%, rgba(231,224,243,.4), transparent 45%),
+    linear-gradient(180deg,#fffdf9,#f6f1ea 50%,#fffdf9);
 }
 
 .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
 .wrap-sm{max-width:820px;margin:0 auto;padding:0 26px}
-.seccion{padding:76px 0;position:relative}
+.seccion{padding:54px 0;position:relative}
 .eyebrow{
   font-family:var(--cuerpo);text-transform:uppercase;letter-spacing:.32em;
   font-size:.72rem;font-weight:500;color:var(--dorado);margin-bottom:18px;
@@ -70,21 +73,21 @@ h2.titulo{
 /* CTA */
 .cta{
   display:inline-flex;align-items:center;gap:12px;
-  font-family:var(--cuerpo);font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  font-family:var(--cuerpo);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   font-size:.95rem;color:#fff;
-  background:linear-gradient(135deg,var(--vino),var(--vino-prof));
+  background:linear-gradient(135deg,var(--cta-verde-claro),var(--cta-verde) 55%,var(--cta-verde-osc));
   padding:21px 48px;border-radius:50px;
-  box-shadow:0 14px 34px -10px rgba(122,39,64,.6), inset 0 1px 0 rgba(255,255,255,.18);
+  box-shadow:0 14px 34px -10px rgba(21,92,66,.6), inset 0 1px 0 rgba(255,255,255,.22);
   position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;
-  border:1px solid rgba(201,162,74,.45);
+  border:1px solid rgba(224,196,133,.7);
 }
 .cta::before{content:"☾";font-size:1.1em;color:var(--dorado-claro)}
 .cta::after{
   content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);
   transform:skewX(-20deg);transition:left .7s;
 }
-.cta:hover{transform:translateY(-3px);box-shadow:0 22px 44px -10px rgba(122,39,64,.7)}
+.cta:hover{transform:translateY(-3px);box-shadow:0 22px 46px -10px rgba(21,92,66,.75)}
 .cta:hover::after{left:130%}
 .cta.grande{font-size:1.05rem;padding:23px 54px}
 .cta-wrap{text-align:center;margin-top:38px}
@@ -98,6 +101,28 @@ h2.titulo{
   position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(224,196,133,.4);line-height:1.5;
 }
 .topbar strong{color:var(--dorado-claro);font-weight:600}
+
+/* ===== BANNERS PROMOCIONALES ===== */
+.banner-promo{
+  position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(120deg,var(--vino-prof),var(--vino) 50%,var(--vino-prof));
+  border-top:2px solid var(--dorado);border-bottom:2px solid var(--dorado);
+  padding:30px 26px;
+}
+.banner-promo .banner-inner{position:relative;z-index:2;max-width:960px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:6px}
+.banner-promo .banner-eyebrow{font-family:var(--cuerpo);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dorado-claro);font-weight:600}
+.banner-promo .banner-titulo{font-family:var(--display);color:#fff;font-size:clamp(1.4rem,3.4vw,2.1rem);line-height:1.25;font-weight:400}
+.banner-promo .banner-titulo b{color:var(--dorado-claro);font-weight:400}
+.banner-promo .banner-titulo .script{font-family:var(--serif);font-style:italic;color:var(--rosa-polvo)}
+/* destellos decorativos */
+.banner-promo::before,.banner-promo::after{content:"✦";position:absolute;color:rgba(224,196,133,.5);font-size:1.4rem;z-index:1}
+.banner-promo::before{top:14px;left:6%}
+.banner-promo::after{bottom:14px;right:6%}
+.banner-promo .banner-cta{margin-top:14px}
+@media(max-width:560px){
+  .banner-promo{padding:24px 20px}
+  .banner-promo::before,.banner-promo::after{display:none}
+}
 
 /* ============ HERO ============ */
 .hero{position:relative;padding:46px 0 30px;overflow:hidden}
@@ -144,7 +169,7 @@ h2.titulo{
 .hero-urgencia{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--vino);margin-top:18px}
 
 /* ============ DOLOR / IDENTIFICACIÓN ============ */
-.dolor{background:linear-gradient(135deg,#fbeef1,#f4e7f0);border-top:1px solid rgba(232,196,203,.6);border-bottom:1px solid rgba(232,196,203,.6)}
+.dolor{background:linear-gradient(135deg,#ece6f4,#f3eef8);border-top:1px solid rgba(214,200,232,.6);border-bottom:1px solid rgba(214,200,232,.6)}
 .lista-check{list-style:none;max-width:760px;margin:38px auto 0;display:grid;gap:2px}
 .lista-check li{position:relative;padding:13px 0 13px 40px;color:var(--texto-suave);font-size:1.06rem;border-bottom:1px solid rgba(232,196,203,.5);line-height:1.6}
 .lista-check li:last-child{border-bottom:none}
@@ -160,6 +185,8 @@ h2.titulo{
 
 /* ============ LOS 3 CURSOS ============ */
 .franja{background:linear-gradient(135deg,#fbeef1,#f4e7f0);border-top:1px solid rgba(232,196,203,.6);border-bottom:1px solid rgba(232,196,203,.6)}
+.franja.franja-salvia{background:linear-gradient(135deg,#e6f0ea,#eef5f0);border-top:1px solid rgba(180,210,195,.6);border-bottom:1px solid rgba(180,210,195,.6)}
+.franja.franja-crema{background:linear-gradient(135deg,#f6efe3,#faf4ea);border-top:1px solid rgba(214,194,160,.45);border-bottom:1px solid rgba(214,194,160,.45)}
 .tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px;align-items:start}
 .curso-card{
   background:var(--blanco-calido);border:1px solid rgba(232,196,203,.7);border-radius:24px;
@@ -184,6 +211,9 @@ h2.titulo{
 .curso-incluye li::before{content:"✓";position:absolute;left:0;top:7px;color:var(--rosa-viejo);font-weight:600}
 .curso-nota{margin-top:16px;background:var(--rosa-suave);border-radius:12px;padding:14px 16px;font-size:.88rem;color:var(--vino-prof);line-height:1.5}
 .curso-nota b{color:var(--vino)}
+.curso-video{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--cuerpo);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--cta-verde-osc);border:1px solid var(--cta-verde);border-radius:50px;padding:9px 18px;transition:.3s}
+.curso-video:hover{background:var(--cta-verde);color:#fff}
+.curso-video::before{content:"▶";font-size:.7em}
 
 /* ============ COMPARATIVO DE VALOR ============ */
 .valor-box{
@@ -250,8 +280,7 @@ h2.titulo{
 .indiv-oferta .precio-pack{font-family:var(--display);color:var(--dorado-claro);font-size:2.6rem;line-height:1;margin:18px 0 6px}
 .indiv-oferta .precio-pack span{font-family:var(--cuerpo);font-size:1.1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
 .indiv-oferta .cursos-lista{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:#fff;margin-bottom:24px}
-.indiv-oferta .cta{background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));color:var(--vino-prof);border-color:rgba(255,255,255,.4);font-weight:600}
-.indiv-oferta .cta::before{color:var(--vino-prof)}
+.indiv-oferta .cta{border-color:rgba(224,196,133,.8)}
 @media(max-width:900px){.indiv-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
 @media(max-width:560px){.indiv-oferta{padding:38px 24px}.indiv-oferta .precio-pack{font-size:2.2rem}}
 
@@ -315,7 +344,7 @@ h2.titulo{
 .cta-mini .precio-line .hoy b{font-family:var(--display);font-size:1.3rem;color:var(--vino)}
 
 /* ============ SILVINA ============ */
-.silvina{background:linear-gradient(135deg,#fbeef1,#f4e7f0)}
+.silvina{background:linear-gradient(135deg,#f6efe3,#faf4ea)}
 .silvina-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:54px;align-items:center}
 .silvina-img-wrap{position:relative;width:300px;height:300px;margin:0 auto}
 .silvina-img{width:300px;height:300px;border-radius:50%;object-fit:cover;border:3px solid var(--blanco-calido);box-shadow:0 24px 60px -30px rgba(122,39,64,.5)}
@@ -376,8 +405,7 @@ h2.titulo{
 .cierre .precio-grande .tach b{color:#fff}
 .cierre .precio-grande .cur{color:var(--dorado-claro)}
 .cierre .precio-grande .pago{color:var(--rosa-polvo)}
-.cierre .cta{background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));color:var(--vino-prof);border-color:rgba(255,255,255,.4);font-weight:600}
-.cierre .cta::before{color:var(--vino-prof)}
+.cierre .cta{border-color:rgba(224,196,133,.8)}
 .cierre .cta-nota{color:var(--rosa-polvo)}
 
 /* ============ FOOTER ============ */
@@ -407,7 +435,7 @@ h2.titulo{
 }
 @media(max-width:560px){
   body{font-size:16px}
-  .seccion{padding:58px 0}
+  .seccion{padding:42px 0}
   .urgencia-card,.silvina-texto{padding:38px 24px}
   .col-card{padding:30px 24px}
   .precio-grande .big{font-size:3.8rem}
@@ -462,6 +490,14 @@ h2.titulo{
   </div>
 </header>
 
+<!-- BANNER PROMO 1 -->
+<div class="banner-promo">
+  <div class="banner-inner">
+    <span class="banner-eyebrow">Oferta especial hasta el 20 de junio</span>
+    <div class="banner-titulo">3 cursos al precio de <b>1</b></div>
+  </div>
+</div>
+
 <!-- 3 · IDENTIFICACIÓN / DOLOR -->
 <section class="seccion dolor">
   <div class="wrap">
@@ -470,31 +506,20 @@ h2.titulo{
     <p class="intro">Tal vez sientes que tienes un llamado profundo, pero todavía no sabes cómo ordenar tus dones, cómo guiar una ceremonia o cómo sostener un espacio de transformación con seguridad.</p>
     <ul class="lista-check">
       <li>Sientes el llamado de guiar ceremonias, pero no sabes por dónde empezar.</li>
-      <li>Tienes miedo de improvisar y que el espacio no fluya como deseas.</li>
       <li>Quieres acompañar a otras personas, pero necesitas una estructura clara.</li>
-      <li>Ya eres terapeuta, coach, reikista, facilitadora o guía espiritual y deseas sumar herramientas profundas.</li>
-      <li>Te gustaría crear círculos, encuentros o ceremonias, pero quieres hacerlo con respeto, presencia y seguridad.</li>
-      <li>Quieres dejar de improvisar y comenzar a facilitar desde una base más sólida.</li>
+      <li>Ya eres terapeuta, coach, reikista o guía espiritual y deseas sumar herramientas profundas.</li>
       <li>Deseas generar ingresos haciendo algo que realmente conecte con tu propósito.</li>
     </ul>
   </div>
 </section>
 
 <!-- 4 · SOLUCIÓN -->
-<section class="seccion">
-  <div class="wrap">
-    <div class="eyebrow">La solución</div>
-    <h2 class="titulo">Una formación integral para guiar <br>espacios sagrados con <span class="script">claridad y confianza</span></h2>
-    <p class="intro">Esta oferta especial reúne tres formaciones complementarias que te ayudarán a comprender, crear y facilitar ceremonias holísticas, ceremonias de cacao y procesos de sanación femenina.</p>
-    <div class="solucion-destacado">No es solo una suma de cursos. Es un camino completo para aprender a abrir, sostener y cerrar espacios de transformación desde el amor, la presencia y la conciencia.</div>
-  </div>
-</section>
-
 <!-- 5 · LOS 3 CURSOS -->
-<section class="seccion franja">
+<section class="seccion">
   <div class="wrap">
     <div class="eyebrow">Lo que recibes</div>
     <h2 class="titulo">Tres formaciones completas, <br>un solo <span class="script">camino de transformación</span></h2>
+    <p class="intro">No es solo una suma de cursos. Es un camino completo para aprender a abrir, sostener y cerrar espacios de transformación desde el amor, la presencia y la conciencia.</p>
     <div class="tri-grid">
 
       <div class="curso-card">
@@ -507,12 +532,10 @@ h2.titulo{
         <ul class="curso-incluye">
           <li>Más de 10 tipos de ceremonias</li>
           <li>Apertura y cierre de espacios sagrados</li>
-          <li>Meditaciones guiadas</li>
-          <li>Armado de altar</li>
+          <li>Meditaciones guiadas y armado de altar</li>
           <li>Círculos de mujeres</li>
           <li>Ceremonias de amor, prosperidad y cierre de ciclos</li>
           <li>Manual PDF con ceremonias completas</li>
-          <li>Ceremonia de Cierre de Ciclos</li>
         </ul>
       </div>
 
@@ -528,9 +551,7 @@ h2.titulo{
           <li>Preparación del cacao</li>
           <li>Apertura del espacio sagrado</li>
           <li>Conducción de la ceremonia</li>
-          <li>Meditación y respiración</li>
           <li>Sostener la energía del grupo</li>
-          <li>Cierre de la ceremonia</li>
           <li>Ceremonia de Iniciación incluida</li>
         </ul>
       </div>
@@ -548,12 +569,9 @@ h2.titulo{
           <li>Espacio sagrado, fases lunares y poder femenino</li>
           <li>Ceremonia del Rito del Útero</li>
           <li>Regresión al Vientre Materno creada por Silvina</li>
-          <li>Cómo transmitir la Ceremonia del Rito del Útero</li>
-          <li>Cómo acompañar la Regresión al Vientre Materno</li>
-          <li>Manual PDF, meditaciones y playlist</li>
-          <li>Certificado de cursado</li>
+          <li>Manual PDF, meditaciones y certificado</li>
         </ul>
-        <div class="curso-nota">En el <b>Módulo 3</b> vives la Ceremonia del Rito del Útero integrada con la Regresión al Vientre Materno creada por Silvina. En el <b>Módulo 4</b>, Silvina te enseña cómo transmitir esa ceremonia y cómo acompañar la Regresión a otras mujeres.</div>
+        <div class="curso-nota">En el <b>Módulo 3</b> vives la Ceremonia del Rito del Útero integrada con la Regresión al Vientre Materno creada por Silvina. En el <b>Módulo 4</b>, Silvina te enseña cómo transmitirla y acompañarla a otras mujeres.</div>
       </div>
 
     </div>
@@ -587,7 +605,7 @@ h2.titulo{
 </section>
 
 <!-- 6B · CURSOS INDIVIDUALES -->
-<section class="seccion">
+<section class="seccion" style="padding-top:8px">
   <div class="wrap">
     <div class="eyebrow">Otra opción</div>
     <h2 class="titulo">¿Quieres comenzar solo <br>con una <span class="script">formación</span>?</h2>
@@ -618,7 +636,7 @@ h2.titulo{
     </div>
 
     <div class="indiv-oferta">
-      <h3>Pero si sientes que quieres formarte de manera integral, la Oferta Especial sigue siendo la opción más conveniente.</h3>
+      <h3>Si sientes que quieres formarte de manera integral, la Oferta Especial sigue siendo la opción más conveniente.</h3>
       <p>Por solo $49 USD accedes a las 3 formaciones completas:</p>
       <p class="cursos-lista">Ceremonias Holísticas + Facilitador de Ceremonia de Cacao + Guardianas del Útero</p>
       <div class="precio-pack"><span>USD</span> 49</div>
@@ -630,27 +648,20 @@ h2.titulo{
 </section>
 
 <!-- 7 · QUÉ INCLUYE -->
-<section class="seccion franja">
+<section class="seccion franja franja-salvia">
   <div class="wrap">
     <div class="eyebrow">Todo incluido</div>
     <h2 class="titulo">Todo lo que recibes dentro <br>de la <span class="script">Oferta Especial</span></h2>
     <ul class="incluye-grid">
       <li>Acceso a las 3 formaciones completas</li>
       <li>Clases grabadas para ver a tu ritmo</li>
-      <li>Acceso inmediato después de la compra</li>
-      <li>Materiales de apoyo</li>
-      <li>Manuales PDF</li>
-      <li>Herramientas prácticas para guiar ceremonias</li>
-      <li>Meditaciones guiadas</li>
-      <li>Playlist de música para ceremonias</li>
-      <li>Ceremonia de Cierre de Ciclos</li>
+      <li>Acceso inmediato y de por vida</li>
+      <li>Manuales PDF y meditaciones guiadas</li>
       <li>Ceremonia de Iniciación de Cacao</li>
-      <li>Ceremonia del Rito del Útero</li>
-      <li>Regresión al Vientre Materno creada por Silvina</li>
-      <li>Comunidad privada de Facebook para alumnas de Siente Tu Luz</li>
+      <li>Ceremonia del Rito del Útero y Regresión al Vientre Materno</li>
+      <li>Comunidad privada de Facebook para alumnas</li>
       <li>Certificado de participación</li>
-      <li>Pago seguro por Hotmart</li>
-      <li>Hotmart convierte el valor a tu moneda local al momento del pago</li>
+      <li>Pago seguro por Hotmart · Moneda local al momento del pago</li>
       <li>Garantía de 7 días</li>
     </ul>
   </div>
@@ -669,11 +680,6 @@ h2.titulo{
           <li>Sientes el llamado de guiar ceremonias o círculos.</li>
           <li>Quieres iniciar tu camino como facilitadora holística.</li>
           <li>Ya eres terapeuta y deseas sumar nuevas herramientas.</li>
-          <li>Quieres crear espacios de sanación, conexión y transformación.</li>
-          <li>Deseas acompañar a otras mujeres desde un lugar más consciente.</li>
-          <li>Buscas una formación práctica, espiritual y profunda.</li>
-          <li>Quieres comenzar a compartir tu medicina con más seguridad.</li>
-          <li>Quieres crear encuentros, retiros, círculos o ceremonias.</li>
           <li>Deseas transformar tu camino personal y abrir una posibilidad profesional.</li>
         </ul>
       </div>
@@ -683,14 +689,8 @@ h2.titulo{
         <ul>
           <li>Diseñar y facilitar ceremonias holísticas.</li>
           <li>Guiar una ceremonia de cacao.</li>
-          <li>Crear espacios seguros, amorosos y sostenidos.</li>
-          <li>Acompañar procesos emocionales y espirituales.</li>
           <li>Trabajar con energía femenina y sanación del útero.</li>
-          <li>Preparar altares, meditaciones, aperturas y cierres.</li>
-          <li>Sostener círculos de mujeres y espacios grupales.</li>
-          <li>Transmitir la Ceremonia del Rito del Útero.</li>
-          <li>Acompañar la Regresión al Vientre Materno dentro del proceso ceremonial.</li>
-          <li>Comenzar a ofrecer tus propios encuentros, talleres o ceremonias.</li>
+          <li>Ofrecer tus propios encuentros, talleres o ceremonias.</li>
         </ul>
       </div>
     </div>
@@ -698,7 +698,7 @@ h2.titulo{
 </section>
 
 <!-- 10 · TESTIMONIOS -->
-<section class="seccion franja">
+<section class="seccion franja franja-crema">
   <div class="wrap">
     <div class="eyebrow">Prueba viva</div>
     <h2 class="titulo">Alumnas que ya vivieron <br>estas <span class="script">formaciones</span></h2>
@@ -728,25 +728,13 @@ h2.titulo{
          Para reemplazar un video, cambia el ID de YouTube tanto en la miniatura (img.youtube.com/vi/ID/hqdefault.jpg)
          como en el enlace (youtube.com/watch?v=ID). -->
     <div class="test-videos">
-      <a class="video-card" href="https://www.youtube.com/watch?v=u34LB4u3d5U" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/u34LB4u3d5U/hqdefault.jpg" alt="Testimonio en video · Ceremonias Holísticas" loading="lazy"><span class="video-play"></span></div>
-        <div class="video-info"><div class="v-nombre">Testimonio en video</div><div class="v-curso">Ceremonias Holísticas</div><span class="v-link">▶ Ver testimonio</span></div>
-      </a>
       <a class="video-card" href="https://www.youtube.com/watch?v=Q_l3WolIHtU" target="_blank" rel="noopener">
         <div class="video-thumb"><img src="https://img.youtube.com/vi/Q_l3WolIHtU/hqdefault.jpg" alt="Testimonio en video · Ceremonias Holísticas" loading="lazy"><span class="video-play"></span></div>
         <div class="video-info"><div class="v-nombre">Testimonio en video</div><div class="v-curso">Ceremonias Holísticas</div><span class="v-link">▶ Ver testimonio</span></div>
       </a>
-      <a class="video-card" href="https://www.youtube.com/watch?v=A3hHaXBhFBk" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/A3hHaXBhFBk/hqdefault.jpg" alt="Testimonio en video · Ceremonia de Cacao" loading="lazy"><span class="video-play"></span></div>
-        <div class="video-info"><div class="v-nombre">Testimonio en video</div><div class="v-curso">Ceremonia de Cacao</div><span class="v-link">▶ Ver testimonio</span></div>
-      </a>
       <a class="video-card" href="https://www.youtube.com/watch?v=Q1JPt1x986U" target="_blank" rel="noopener">
         <div class="video-thumb"><img src="https://img.youtube.com/vi/Q1JPt1x986U/hqdefault.jpg" alt="Testimonio en video · Ceremonia de Cacao" loading="lazy"><span class="video-play"></span></div>
         <div class="video-info"><div class="v-nombre">Testimonio en video</div><div class="v-curso">Ceremonia de Cacao</div><span class="v-link">▶ Ver testimonio</span></div>
-      </a>
-      <a class="video-card" href="https://www.youtube.com/watch?v=Z--lQEA8Uz0" target="_blank" rel="noopener">
-        <div class="video-thumb"><img src="https://img.youtube.com/vi/Z--lQEA8Uz0/hqdefault.jpg" alt="Testimonio en video · Guardianas del Útero" loading="lazy"><span class="video-play"></span></div>
-        <div class="video-info"><div class="v-nombre">Testimonio en video</div><div class="v-curso">Guardianas del Útero</div><span class="v-link">▶ Ver testimonio</span></div>
       </a>
       <a class="video-card" href="https://www.youtube.com/watch?v=gxsAXwJ-4wQ" target="_blank" rel="noopener">
         <div class="video-thumb"><img src="https://img.youtube.com/vi/gxsAXwJ-4wQ/hqdefault.jpg" alt="Testimonio en video · Guardianas del Útero" loading="lazy"><span class="video-play"></span></div>
@@ -787,6 +775,17 @@ h2.titulo{
   </div>
 </section>
 
+<!-- BANNER PROMO 2 -->
+<div class="banner-promo">
+  <div class="banner-inner">
+    <span class="banner-eyebrow">Siente Tu Luz</span>
+    <div class="banner-titulo">Formación completa <span class="script">a un precio increíble</span></div>
+    <div class="banner-cta">
+      <a class="cta" href="https://pay.hotmart.com/W106286414J" target="_blank" rel="noopener">Quiero las 3 formaciones</a>
+    </div>
+  </div>
+</div>
+
 <!-- 12 · URGENCIA -->
 <section class="seccion urgencia">
   <div class="wrap">
@@ -817,18 +816,13 @@ h2.titulo{
     <div class="eyebrow">Antes de comenzar</div>
     <h2 class="titulo">Preguntas frecuentes</h2>
     <div class="faq-lista">
-      <details class="faq-item"><summary>¿Las clases son en vivo o grabadas?</summary><div class="faq-a">Las clases son grabadas, por eso puedes comenzar hoy mismo y avanzar a tu ritmo.</div></details>
+      <details class="faq-item"><summary>¿Las clases son en vivo o grabadas?</summary><div class="faq-a">Las clases son grabadas, por eso puedes comenzar hoy mismo y avanzar a tu ritmo, desde cualquier país y dispositivo.</div></details>
       <details class="faq-item"><summary>¿Cuándo recibo el acceso?</summary><div class="faq-a">Recibes el acceso inmediatamente después de realizar la compra por Hotmart.</div></details>
-      <details class="faq-item"><summary>¿Necesito experiencia previa?</summary><div class="faq-a">No. Puedes comenzar desde cero. La formación está pensada para acompañarte paso a paso, incluso si nunca has guiado una ceremonia.</div></details>
-      <details class="faq-item"><summary>¿Sirve si ya soy terapeuta?</summary><div class="faq-a">Sí. Es ideal si ya eres terapeuta, facilitadora, coach, guía espiritual, reikista o acompañante de procesos y deseas sumar herramientas para crear ceremonias, círculos o encuentros.</div></details>
-      <details class="faq-item"><summary>¿Qué incluye exactamente la oferta especial?</summary><div class="faq-a">Incluye el Curso de Ceremonias Holísticas, el Taller Facilitador de Ceremonia de Cacao y el Taller Guardianas del Útero, junto con clases grabadas, materiales de apoyo, comunidad privada y certificado de participación.</div></details>
-      <details class="faq-item"><summary>¿Puedo ver las clases desde cualquier país?</summary><div class="faq-a">Sí. Al ser una formación online grabada, puedes acceder desde cualquier país y verla desde tu celular, tablet o computadora.</div></details>
-      <details class="faq-item"><summary>¿El pago es seguro?</summary><div class="faq-a">Sí. El pago se realiza a través de Hotmart, una plataforma segura para productos digitales.</div></details>
+      <details class="faq-item"><summary>¿Necesito experiencia previa?</summary><div class="faq-a">No. Puedes comenzar desde cero. La formación está pensada para acompañarte paso a paso, incluso si nunca has guiado una ceremonia. También es ideal si ya eres terapeuta, coach o guía y deseas sumar herramientas.</div></details>
+      <details class="faq-item"><summary>¿Qué incluye exactamente la oferta especial?</summary><div class="faq-a">Incluye las 3 formaciones completas (Ceremonias Holísticas, Facilitador de Ceremonia de Cacao y Guardianas del Útero), junto con clases grabadas, materiales de apoyo, comunidad privada, certificado de participación y garantía de 7 días.</div></details>
       <details class="faq-item"><summary>¿Tengo que pagar en dólares o puedo pagar en mi moneda local?</summary><div class="faq-a">El precio de referencia es $49 USD, pero al ingresar al botón de pago, Hotmart convierte automáticamente el valor a la moneda de tu país al momento del pago. Puedes pagar según las opciones disponibles en la plataforma.</div></details>
+      <details class="faq-item"><summary>¿El pago es seguro y tengo garantía?</summary><div class="faq-a">Sí. El pago se realiza a través de Hotmart, una plataforma segura para productos digitales, y tienes 7 días de garantía.</div></details>
       <details class="faq-item"><summary>¿Hasta cuándo está disponible el precio de $49 USD?</summary><div class="faq-a">El precio especial de $49 USD está disponible solo hasta el 20 de junio. Después de esa fecha, este valor deja de estar disponible.</div></details>
-      <details class="faq-item"><summary>¿Recibo certificado?</summary><div class="faq-a">Sí. La formación incluye certificado de participación.</div></details>
-      <details class="faq-item"><summary>¿Tengo garantía?</summary><div class="faq-a">Sí. Tienes 7 días de garantía a través de Hotmart.</div></details>
-      <details class="faq-item"><summary>¿Esta formación me sirve para comenzar a ofrecer ceremonias?</summary><div class="faq-a">Sí. La formación te brinda estructura, herramientas e inspiración para comenzar a crear y facilitar tus propios espacios, siempre desde la responsabilidad, el respeto y la presencia.</div></details>
     </div>
   </div>
 </section>
@@ -860,7 +854,7 @@ h2.titulo{
   <div class="redes">
     <a href="https://youtube.com/@sientetuluz" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3.02 3.02 0 00-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 00.5 6.2 31.5 31.5 0 000 12a31.5 31.5 0 00.5 5.8 3.02 3.02 0 002.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 002.12-2.14A31.5 31.5 0 0024 12a31.5 31.5 0 00-.5-5.8zM9.55 15.57V8.43L15.82 12z"/></svg></a>
   </div>
-  <p style="opacity:.7;margin-top:8px">Playa del Carmen, México · © Siente Tu Luz · Todos los derechos reservados</p>
+  <p style="opacity:.7;margin-top:8px">México · © Siente Tu Luz · Todos los derechos reservados</p>
 </footer>
 
 </body>
