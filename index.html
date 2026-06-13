@@ -211,6 +211,50 @@ h2.titulo{
 .caja-2usd .destacado b{color:var(--dorado);font-style:normal}
 .caja-2usd .mini{display:block;font-family:var(--cuerpo);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dorado);margin-bottom:10px}
 
+/* ===== SECCIÓN CURSOS INDIVIDUALES ===== */
+.indiv-intro{max-width:720px;margin:24px auto 0;text-align:center;font-family:var(--serif);font-size:1.18rem;color:var(--texto-suave);line-height:1.65}
+.indiv-intro strong{color:var(--vino);font-weight:500;font-style:normal}
+.indiv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:42px;align-items:start}
+.indiv-card{
+  background:rgba(255,255,255,.7);border:1px solid rgba(232,196,203,.6);border-radius:20px;
+  padding:30px 26px;text-align:center;box-shadow:0 14px 40px -32px rgba(122,39,64,.3);
+  transition:transform .35s,box-shadow .35s;
+}
+.indiv-card:hover{transform:translateY(-4px);box-shadow:0 22px 50px -32px rgba(122,39,64,.4)}
+.indiv-tag{display:inline-block;font-family:var(--cuerpo);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-suave);background:var(--beige);border:1px solid rgba(176,137,104,.3);border-radius:50px;padding:5px 14px;margin-bottom:16px}
+.indiv-card h3{font-family:var(--display);color:var(--vino);font-size:1.28rem;font-weight:400;line-height:1.2;margin-bottom:12px}
+.indiv-card p{color:var(--texto-suave);font-size:.97rem;line-height:1.6;margin-bottom:16px}
+.indiv-precio{font-family:var(--cuerpo);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--dorado);margin-bottom:18px}
+.indiv-precio b{font-family:var(--display);color:var(--vino);font-size:1.45rem;letter-spacing:0;display:block;margin-top:2px;text-transform:none}
+.indiv-btn{
+  display:inline-block;font-family:var(--cuerpo);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  color:var(--vino);border:1px solid var(--rosa-viejo);border-radius:50px;padding:11px 22px;transition:.3s;
+}
+.indiv-card:hover .indiv-btn{background:var(--vino);color:#fff;border-color:var(--vino)}
+/* bloque destacado oferta dentro de individuales */
+.indiv-oferta{
+  max-width:720px;margin:46px auto 0;text-align:center;position:relative;
+  background:linear-gradient(160deg,var(--vino),var(--vino-prof));color:#fff;
+  border:1.5px solid var(--dorado-claro);border-radius:26px;padding:60px 44px 48px;
+  box-shadow:0 30px 80px -40px rgba(122,39,64,.6);
+}
+.indiv-oferta::before{
+  content:"MÁS CONVENIENTE";position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));color:var(--vino-prof);
+  font-family:var(--cuerpo);font-size:.7rem;letter-spacing:.16em;font-weight:700;
+  padding:8px 26px;border-radius:50px;white-space:nowrap;
+  box-shadow:0 8px 22px -8px rgba(201,162,74,.7);
+}
+.indiv-oferta h3{font-family:var(--display);color:#fff;font-size:1.6rem;font-weight:400;line-height:1.3;margin-bottom:14px}
+.indiv-oferta p{color:var(--rosa-polvo);font-size:1.05rem;line-height:1.6;margin-bottom:8px}
+.indiv-oferta .precio-pack{font-family:var(--display);color:var(--dorado-claro);font-size:2.6rem;line-height:1;margin:18px 0 6px}
+.indiv-oferta .precio-pack span{font-family:var(--cuerpo);font-size:1.1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
+.indiv-oferta .cursos-lista{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:#fff;margin-bottom:24px}
+.indiv-oferta .cta{background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));color:var(--vino-prof);border-color:rgba(255,255,255,.4);font-weight:600}
+.indiv-oferta .cta::before{color:var(--vino-prof)}
+@media(max-width:900px){.indiv-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
+@media(max-width:560px){.indiv-oferta{padding:38px 24px}.indiv-oferta .precio-pack{font-size:2.2rem}}
+
 /* ============ QUÉ INCLUYE ============ */
 .incluye-grid{list-style:none;max-width:840px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:6px 36px}
 .incluye-grid li{position:relative;padding:11px 0 11px 32px;color:var(--texto-suave);font-size:1.02rem;border-bottom:1px solid rgba(232,196,203,.45);line-height:1.5}
@@ -290,13 +334,15 @@ h2.titulo{
 .urgencia{background:linear-gradient(160deg,#fff6f8,#f6e8ef)}
 .urgencia-card{
   max-width:720px;margin:0 auto;background:var(--blanco-calido);
-  border:1.5px solid var(--dorado-claro);border-radius:28px;padding:52px 48px;text-align:center;
-  box-shadow:0 36px 90px -42px rgba(122,39,64,.5);position:relative;overflow:hidden;
+  border:1.5px solid var(--dorado-claro);border-radius:28px;padding:62px 48px 52px;text-align:center;
+  box-shadow:0 36px 90px -42px rgba(122,39,64,.5);position:relative;
 }
 .urgencia-card::before{
-  content:"HASTA EL 20 DE JUNIO";position:absolute;top:24px;right:-52px;transform:rotate(45deg);
+  content:"HASTA EL 20 DE JUNIO";position:absolute;top:-15px;left:50%;transform:translateX(-50%);
   background:linear-gradient(135deg,var(--vino),var(--vino-prof));color:var(--dorado-claro);
-  font-family:var(--cuerpo);font-size:.64rem;letter-spacing:.14em;font-weight:600;padding:7px 62px;
+  font-family:var(--cuerpo);font-size:.7rem;letter-spacing:.16em;font-weight:600;
+  padding:8px 26px;border-radius:50px;white-space:nowrap;
+  box-shadow:0 8px 22px -8px rgba(122,39,64,.6);border:1px solid rgba(224,196,133,.5);
 }
 .urgencia-card p{color:var(--texto-suave);font-size:1.1rem;line-height:1.7;max-width:520px;margin:18px auto 0}
 .urgencia-card p strong{color:var(--vino);font-weight:500}
@@ -536,6 +582,49 @@ h2.titulo{
     <div class="cta-wrap">
       <a class="cta grande" href="https://pay.hotmart.com/W106286414J" target="_blank" rel="noopener">Quiero acceder por $49 USD</a>
       <span class="cta-nota">Pago seguro por Hotmart · Acceso inmediato · Hotmart convierte el valor a tu moneda local al momento del pago</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6B · CURSOS INDIVIDUALES -->
+<section class="seccion">
+  <div class="wrap">
+    <div class="eyebrow">Otra opción</div>
+    <h2 class="titulo">¿Quieres comenzar solo <br>con una <span class="script">formación</span>?</h2>
+    <p class="indiv-intro">La opción más conveniente es acceder a la <strong>Oferta Especial</strong>, porque por tiempo limitado puedes llevarte las 3 formaciones completas por un valor mucho menor que comprándolas por separado.<br><br>Sin embargo, si en este momento deseas comenzar solo con una formación específica, también puedes adquirirlas de manera individual.</p>
+
+    <div class="indiv-grid">
+      <div class="indiv-card">
+        <span class="indiv-tag">Opción individual</span>
+        <h3>Ceremonias Holísticas</h3>
+        <p>Aprende a crear, abrir, sostener y cerrar ceremonias holísticas de manera consciente, amorosa y ordenada.</p>
+        <div class="indiv-precio">Valor individual <b>$37 USD</b></div>
+        <a class="indiv-btn" href="https://hotm.io/CeremoniasHolisticas" target="_blank" rel="noopener">Ver Ceremonias Holísticas</a>
+      </div>
+      <div class="indiv-card">
+        <span class="indiv-tag">Opción individual</span>
+        <h3>Facilitador de Ceremonia de Cacao</h3>
+        <p>Aprende a guiar ceremonias de cacao desde la presencia, el respeto y la conexión espiritual.</p>
+        <div class="indiv-precio">Valor individual <b>$37 USD</b></div>
+        <a class="indiv-btn" href="https://hotm.io/CeremoniaCacao" target="_blank" rel="noopener">Ver Ceremonia de Cacao</a>
+      </div>
+      <div class="indiv-card">
+        <span class="indiv-tag">Opción individual</span>
+        <h3>Guardianas del Útero</h3>
+        <p>Un taller profundo de sanación femenina, reconexión con el cuerpo, el linaje y la energía creadora.</p>
+        <div class="indiv-precio">Valor individual <b>$47 USD</b></div>
+        <a class="indiv-btn" href="https://hotm.io/GuardianasDelUtero" target="_blank" rel="noopener">Ver Guardianas del Útero</a>
+      </div>
+    </div>
+
+    <div class="indiv-oferta">
+      <h3>Pero si sientes que quieres formarte de manera integral, la Oferta Especial sigue siendo la opción más conveniente.</h3>
+      <p>Por solo $49 USD accedes a las 3 formaciones completas:</p>
+      <p class="cursos-lista">Ceremonias Holísticas + Facilitador de Ceremonia de Cacao + Guardianas del Útero</p>
+      <div class="precio-pack"><span>USD</span> 49</div>
+      <div class="cta-wrap" style="margin-top:18px">
+        <a class="cta grande" href="https://pay.hotmart.com/W106286414J" target="_blank" rel="noopener">Quiero las 3 formaciones por $49 USD</a>
+      </div>
     </div>
   </div>
 </section>
